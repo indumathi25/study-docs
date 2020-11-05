@@ -5,17 +5,21 @@ CSS:
 DIV and SPAN:
 ============
 A div is a block-level element and a span is an inline element. 
+
 The div should be used to wrap sections of a document, while use spans to wrap small portions of text, images, etc.
 
 INHERITANCE:
 ===========
+```
 body {
-	font-family: sans-serif;
+  font-family: sans-serif;
 } 
-> Child elements can inherit the body font property.
+```
+Child elements can inherit the body font property.
 
 LAST RULE and SPECIFICITY:
 ======================
+```
 Ex:
 p {
     color: blue;
@@ -23,9 +27,10 @@ p {
 p {
     color: red;
 }
-//Last rule will be applied for 'P' tag
+```
+Last rule will be applied for 'P' tag
 
-Ex:
+```Ex:
 <p class="red">Indumathi</p>
 
 .red {
@@ -34,47 +39,53 @@ Ex:
 p {
     color: blue;
 }
-//Even though 'p' tag is the last rule, here class="red" is more specific, so red will be applied to 'p' tag.
+```
+Even though 'p' tag is the last rule, here class="red" is more specific, so red will be applied to 'p' tag.
 
 UNIVERSAL SELECTOR:
 ==================
+```
 p {
    color: red;
 }
 *{
    color: blue;
 }
-//Here red will be applied to ‘p’ tag. Universal selector is the least specific.
+```
+Here red will be applied to ‘p’ tag. Universal selector is the least specific.
 
 COLOR:
 ======
-
+```
 p {
     color: red;
     background : grey; // or background-color: grey;
 }
+```
 
 RGB : RED, GREEN, BLUE (0 to 255)
 ---
+```
 color: rgb(255, 0, 0) -> Red
 color: rgb(0, 255, 0) -> Green
 color: rgb(0, 0, 0) -> Black
 color: rgb(255, 255, 255) -> White
-
+```
 RGBA : RED, GREEN, BLUE (0 to 1) OPACITY/TRANSPARENCY
 ----
+```
 color: rgba(100, 123, 56, 0.5)
-
+```
 HEX values #RRGGBB :
 -------------------
 1 2 3 4 5 6 7 8 9 (10)A (11)B (12)C (13)D (14)E (15)F 
-
+```
 #FF0000 -> RED
 #00FF00 -> GREEN
 #000 -> Black
 #fff -> White
 #f234ad -> Pink
-
+```
 For more colors:
 https://coolors.co/
 
@@ -85,20 +96,20 @@ Control the layout of the project
 Pixels: Absolute
 -------
 Absolute unit of mesurement. 1 pixel represents one .(dot on screen)
-
+```
 Ex: <h1>Indumathi </h1>
 
 h1 {
     font-size: 60px;
     width: 200px;
-	height: 200px;
+    height: 200px;
 }
-
+```
 
 Relative: %
 --------
 % are depend on the parent element.
-
+```
 <div class="outer">
   <div class="inner">Indu</div>
 </div>
@@ -113,16 +124,18 @@ Relative: %
     height: 50%;
     background: red;
 }
-
-// Inner Width occupies half of the parent width. Relative to parent.
+```
+ Inner Width occupies half of the parent width. Relative to parent.
 
 
 em :
 ---
 Relative depends on parent
-1em = 16px default browser style
-1em = base value
 
+1em = 16px default browser style
+
+1em = base value
+```
 Ex: 1
  <h3 class="relative">Relative</h3>
  <h3 class="absolute">Absolute</h3>
@@ -133,13 +146,13 @@ Ex: 1
  .absolute {
     font-size: 32px;
  }
+```
+Here both h3 tag assigned with 32px; 2em = 32px;
 
-//Here both h3 tag assigned with 32px; 2em = 32px;
-
-> We can change the default browser font size by going to settings -> Font size -> very large
+We can change the default browser font size by going to settings -> Font size -> very large
 now relative h3 tag alone will look bigger in font size.
 
-
+```
 Ex: 2
     <div>
         <h3 class="relative">Relative</h3>
@@ -150,24 +163,24 @@ Ex: 2
 
     .relative {
         font-size: 2em;
-      }
-      .absolute {
+    }
+    .absolute {
         font-size: 32px;
-      }
-      div {
+    }
+    div {
         font-size: 10px;
-      }
+    }
+```
+ Here now div is assigned with 10px; so relative class gets assigned with 20px;
 
-> Here now div is assigned with 10px; so relative class gets assigned with 20px;
-
-> If we assign div with 16px then relative gets 32px;
+ If we assign div with 16px then relative gets 32px;
 
 
 rem :
 ----
 It depends on root. Not depend on parent.
 1rem = 16px default browser style
-
+```
 <div><h3 class="relative">Relative</h3></div>
 <div><h3 class="absolute">Absolute</h3></div>
 
@@ -196,15 +209,15 @@ Ex: 2: HTML is actual root for rem
       .absolute {
         font-size: 32px;
       }
-
-> Here relative will be assigned with 64px;
+```
+Here relative will be assigned with 64px;
 
 
 vh & vw :
 ---------
 Useful for banners.
 view height - view width
-
+```
 <div class="banner"></div>
 <div class="header"></div>
 
@@ -218,12 +231,15 @@ view height - view width
     height: 100vh;
     background: green;
 }
+```
+Depending on the screen size it changes 50% horizontally and 50% vertically for .banner
 
-> Depending on the screen size it changes 50% horizontally and 50% vertically for .banner
-> This is not exactly 100% or 50% 
+
+This is not exactly 100% or 50% 
 
 
-> Default browser styles and google devTools:
+Default browser styles and google devTools:
+
 For every element get render in browser has some default styles applied to it.
 
 
@@ -248,10 +264,10 @@ Ex:
     height: 100px;
     background: green;
   }
+```
 
-
-> We need to set the banner height based on the navbar height. We can use calc()
-
+We need to set the banner height based on the navbar height. We can use calc()
+```
 .banner {
     min-height: calc(100vh - 100px);
     background: red;
@@ -270,9 +286,9 @@ At the end of the 'font stack' we can mention the 'generic family'.
     font-family: 'Times New Roman', Times, serif
  }
 ```
-> If browser doest take 'Times New Roman' then checks 'Times'. Then 'Times' not available then take the generic family 'serif'.
+If browser doest take 'Times New Roman' then checks 'Times'. Then 'Times' not available then take the generic family 'serif'.
 
-> Generic: serif, sans-serif, cursive, fantasy, monospace
+Generic: serif, sans-serif, cursive, fantasy, monospace
 
 
 Google Fonts:
@@ -281,7 +297,7 @@ Google Fonts:
 Go to : https://fonts.google.com/
 
 Select the font, Copy the link and use the font.
-
+```
 index.html:
 <link
   href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
@@ -292,17 +308,17 @@ index.css:
 body {
     font-family: 'Roboto', sans-serif;
   }
-
+```
 ----------
 
 Or we can import in index.css:
-
+```
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
   }
-
+```
 
 Font weight:
 ------------
@@ -352,17 +368,20 @@ text-decoration: underline;
 ```
  CSS BOX MODEL:
 =============
-```
+
 Margin
+
 Border
+
 Padding
+
 Content  
 
-> Each element displayed as a box.
+Each element displayed as a box.
 Padding: Distance between the content of the element.
 Border: Go around the element.
 Margin: Distance between end of the screen or some other element.
-```
+
 PADDING:
 =======
 ```
@@ -380,13 +399,12 @@ or we can write as
     background: red;
     padding: 30px 60px; // top and bottom 30px, left and right 60px;
   }
-
+```
 Or we can give padding: 50px; // For all the sides. 
 
 or padding: 20px 40px 30px 50px; padding: top right bottom left;
 
-> All of them are valid;
-```
+All of them are valid.
 
 MARGIN:
 ======
@@ -400,9 +418,9 @@ We can use the margin property like padding.
     margin-left: 23px;
     margin-right: 50px;
   }
-
-> By default browser assign margin for each element. If i dont want margin we cna assign with 0.
-
+```
+By default browser assign margin for each element. If i dont want margin we cna assign with 0.
+```
  div {
     background: red;
     padding: 20px;
@@ -413,9 +431,9 @@ We can use the margin property like padding.
     padding: 20px;
     margin-top: 0;
   }
-
-> To get rid of default margin to all the elements:
-
+```
+To get rid of default margin to all the elements:
+```
 *{
     margin: 0;
 }
@@ -467,13 +485,17 @@ margin-top: -100px; //Overlaps other element.
 
 Outline:
 ========
-```
-Margin
-Outline
-Border
-Padding
-Content
 
+Margin
+
+Outline
+
+Border
+
+Padding
+
+Content
+```
 Ex:
 <div class="buttons">
   <a id="one" href="#">One</a>
@@ -489,13 +511,13 @@ css:
     cursor: pointer;
     background: #df6bdd;
   }
-  #one {
+ #one {
     border: 0.2rem solid #222;
-  }
-  #two{
+ }
+ #two{
     outline: 0.2rem solid #222;
     outline-offset: 10px; // moves the ouline 10px above i.e out of the button
-  }
+ }
 
 > Outline same like border. Here we can use the offset property.
 
@@ -533,9 +555,10 @@ CSS:
     color: aliceblue;
     display: block; //Now span, a, img will be rendered in new line.
   }
-
+```
 Horizontal Centering:
 ====================
+```
 <div class="block">Block Element</div>
 <h1 class="block">Block Element</h1>
 <p class="block">Block Element</p>
@@ -551,9 +574,8 @@ CSS:
     width: 150px;
     margin: 0 auto;
   }
-
-> We can also flex box for this.
 ```
+We can also flex box for this.
 
 BLOCK and INLINE:
 =================
@@ -570,7 +592,7 @@ links are inline element. Browser is not respect that.
 </ul>
 
 CSS:
- *{
+  *{
     margin:0;
     padding:0;
     box-sizing: border-box;
@@ -590,11 +612,12 @@ CSS:
     padding: 5px;
     margin: 10px;
   }
-
-> So here we need to make the link as block level element.
+```
+So here we need to make the link as block level element.
 
 Ex: 2 Inline Block
 -------------------
+```
 <a href="#">Home</a>
 <a href="#">Products</a>
 <a href="#">Contact us</a>
@@ -605,11 +628,11 @@ CSS:
     color: white;
     font-size: 60px;
     margin: 32px;  // Margin top and bottom wont be applied for inline element 'a' tag
-  }
-
-> So here we can give display: inline-block, So it wont take new line.
-
+ }
 ```
+So here we can give display: inline-block, So it wont take new line.
+
+
 BORDER BOX:
 ===========
 
@@ -637,25 +660,29 @@ CSS:
     background: green;
     padding: 20px;
   }
+```
+If we inspect the div of box-1 and box-3, it will be 240px x 240px;
 
-> If we inspect the div of box-1 and box-3, it will be 240px x 240px;
 But we assigned width as 200px;
+
 Because we added padding 20px; left, right, top and bottom.
+
 Eventhough the div is originally 200px x 200px.
 
-> Here we can use border-box
+Here we can use border-box
 
-.box-1 {
+```
+  .box-1 {
     background: red;
     padding: 20px;
     box-sizing: border-box;
   }
-
+```
 Now the content is 160 and padding is 20, so the width of div is 200px x 200px
 Now padding will be applied inside of the element.
 
-> If we add border-box it wont mess up with the layout.
-```
+If we add border-box it wont mess up with the layout.
+
 
 Display none, opacity, visibility:
 ===================================
@@ -711,40 +738,47 @@ CSS:
   .folder-img {
     background: url("img/blackberries.jpeg");
   }
+```
+background-repeat: no-repeat; --> Image wont get repeated.
 
-> background-repeat: no-repeat; -> Image wont get repeated.
-> background-repeat: repeat-x; -> Repeat only in x axis.
-> background-repeat: repeat-y; -> Repeat only in y axis.
-> background-repeat: space; -> Space between the images.
-> background-repeat: round; -> If the image is not fit to the div then 2 images exactly fits the div.
+background-repeat: repeat-x; --> Repeat only in x axis.
+
+background-repeat: repeat-y; --> Repeat only in y axis.
+
+background-repeat: space; --> Space between the images.
+
+background-repeat: round; --> If the image is not fit to the div then 2 images exactly fits the div.
 
 Regardless of the size of the div, the background images always fill up the div. Even though the image is small. But actual quality of the image suffer.
-
+```
  .big-img {
     background: url("./big.jpeg");
     background-size: cover;
   }
-
->  background-size: contain; -> fits the div and repeat the image.
+```
+background-size: contain; --> fits the div and repeat the image.
 
 
 Background Position:
 -------------------
+```
  .small-img {
     background: url("./small.jpeg");
     background-repeat: no-repeat;
     background-position: center;
   }
-> To place the image at center of the div.
+```
+To place the image at center of the div.
 
-> background-position: bottom; 
-> background-position: 20% 50%; -> 20% on x-axis and 50% on y-axis.
+background-position: bottom; 
+
+background-position: 20% 50%; --> 20% on x-axis and 50% on y-axis.
 
 Background Attachment:
 ---------------------
 
 Make sure the background image stay fixed. 
-
+```
 <div class="big-img"><h1>Big image</h1></div>
 <div class="small-img"><h1>Small Image</h1></div>
 <div class="folder-img"><h1>Folder image</h1></div>
@@ -785,10 +819,10 @@ CSS:
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
-
-> background property not respected if we place it in div.
-
 ```
+background property not respected if we place it in div.
+
+
 LINEAR GRADIENT:
 ===============
 ```
@@ -852,20 +886,22 @@ Ex:2 To make the h1 more visible than background.
     background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5)),
       url("./img/watermelon.jpeg") center/cover no-repeat fixed;
   }
-
-> In header class we can write background in shorter way.
-> center/cover -> should be in this way, we should not change the order.
+```
+In header class we can write background in shorter way.
+center/cover --> should be in this way, we should not change the order.
 
 Shorter way:
+```
 .banner {
     background: url("./img/blackberries.jpeg") center/cover no-repeat fixed;
   }
-
-
-> For more gradient visit https://www.colorzilla.com/gradient-editor/
-> Edit the colors and copy the properties and use it for your div
-
 ```
+
+For more gradient visit https://www.colorzilla.com/gradient-editor/
+
+Edit the colors and copy the properties and use it for your div
+
+
 FLOAT PROPERTY:
 ===============
 
@@ -910,7 +946,7 @@ Ex: 3 Float property column layout:
 </div>
 
 CSS:
- * {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -929,12 +965,13 @@ CSS:
   .banner-3 {
     background: green;
   }
-
+```
 
 Position:
 ---------
 By default all the elements are position static.
 
+```
 Ex: 1 Position: relative
  <div>
   <p class="one">
@@ -991,19 +1028,25 @@ CSS:
     top: 0;
     right: 0;
   }
+```
+Here span assigned with 'special' class which has position: absolute; 
 
-> Here span assigned with 'special' class which has position: absolute; 
-> It checks for ancesters who is having position: relative;
-> Here nothing found so assigned with body.
-> Because of the 'special' class having top and right as 0, the span moves to top right corner of the 'body'
+It checks for ancesters who is having position: relative;
 
-> If we assign .two class as position: relative then 
+Here nothing found so assigned with body.
+
+Because of the 'special' class having top and right as 0, the span moves to top right corner of the 'body'
+
+If we assign .two class as position: relative then 
+```
  .two {
     background: #6007ee;
     position: relative;
   }
->span will move top right corner of the 'P' tag
+```
+span will move top right corner of the 'P' tag
 
+```
 Ex: 3 Position: fixed -> For navigation buttons
 
  .button {
@@ -1015,16 +1058,20 @@ Ex: 3 Position: fixed -> For navigation buttons
     right: 0;
   }
 <button class="button">Submit</button>
-
-> Even if we scroll, the button will be fixed to top right corner.
-
 ```
+Even if we scroll, the button will be fixed to top right corner.
+
+
 MEDIA QUERY:
 ===========
 Helps to write responsive design.
+
 Style Elements depends on different screen sizes.
+
 min-width: starting from
+
 max-width: up to
+
 ```
 Ex: 
 <div class="banner">
@@ -1075,10 +1122,11 @@ CSS:
 Z-index:
 =======
 By default z-index is 0.
-```
-> It only work with position absolute and relative.
-> It wont work with position: static
 
+It only work with position absolute and relative.
+
+It wont work with position: static
+```
 <div class="banner">
   <img src="./small.jpeg" class="one" />
   <img src="./big.jpeg" class="two" />
@@ -1110,9 +1158,12 @@ CSS:
     top: 20%;
     left: 20%;
   }
+```
+Here image appears in this order -> small, big, watermelon
 
-> Here image appears in this order -> small, big, watermelon
-> If i give z-index: 1 for 'small' image then 'small' image wont get hide with the 'big'
+If i give z-index: 1 for 'small' image then 'small' image wont get hide with the 'big'
+
+```
  .one {
     top: 0;
     left: 0;
@@ -1128,8 +1179,9 @@ CSS:
     left: 20%;
     z-index: -2; // 'watermelon' goes below to big 
   }
-
-> It wont work with position: static
+```
+It wont work with position: static
+```
  .one {
     top: 0;
     left: 0;
@@ -1141,6 +1193,7 @@ CSS:
 PSEUDO ELEMENTS:
 =================
 Style specific parts of the element. 
+
 ::before ::after Content not Element -> add the Content before or after the content of the Paragraph.
 ```
 content:'' -> required
@@ -1186,17 +1239,19 @@ CSS:
   img {
     width: 100%;
   }
+```
+Even though width is 100% the image wont exactly fit into the border red.
 
-> Even though width is 100% the image wont exactly fit into the border red.
-> To get rid of the extra margin at bottom, We can update like below
-
+To get rid of the extra margin at bottom, We can update like below
+```
 img {
     width: 100%;
     display: block;
   }
-
+```
 
 Ex: 4 Box transition
+```
  <div>
   <img src="big.jpeg" />
 </div>
