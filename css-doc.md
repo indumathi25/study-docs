@@ -233,7 +233,9 @@ Performs math operations + - * /
 mix and match values
 
 Ex:
- <div class="navbar">Navbar</div>
+--
+ ```
+<div class="navbar">Navbar</div>
  <div class="banner"></div>
 
  .banner {
@@ -247,6 +249,7 @@ Ex:
     background: green;
   }
 
+
 > We need to set the banner height based on the navbar height. We can use calc()
 
 .banner {
@@ -256,17 +259,17 @@ Ex:
 
 > calc(100vh- 100px) or calc(100vh-100px) wont work give space before and after '-'
 
-
+```
 FONT:
 =====
 Font stack: If the browser is not supported with the mentioned font-family.  So we can have a font stack(with several font family). If browser doesn’t support for the first one it will try with second.
 
 At the end of the 'font stack' we can mention the 'generic family'.
-
+```
  body {
     font-family: 'Times New Roman', Times, serif
  }
-
+```
 > If browser doest take 'Times New Roman' then checks 'Times'. Then 'Times' not available then take the generic family 'serif'.
 
 > Generic: serif, sans-serif, cursive, fantasy, monospace
@@ -303,6 +306,7 @@ body {
 
 Font weight:
 ------------
+```
 .one{
     font-weight: 600;
   }
@@ -311,9 +315,10 @@ font-weight: 900;
 font-weigth: bold; // bolder, lighter
 
 font-style: italic;
-
+```
 Text align:
 ----------
+```
 text-align: left; //center, right -> Control the alignment of the text.
 
 text-indent: 50px;  //Indent the first line
@@ -344,9 +349,10 @@ Ex:                                ___________
 text-decoration: overline; // o/p: sub heading
 
 text-decoration: underline;  
-
+```
  CSS BOX MODEL:
 =============
+```
 Margin
 Border
 Padding
@@ -356,9 +362,10 @@ Content
 Padding: Distance between the content of the element.
 Border: Go around the element.
 Margin: Distance between end of the screen or some other element.
-
+```
 PADDING:
 =======
+```
  div {
     background: red;
     padding-top: 32px;
@@ -379,12 +386,12 @@ Or we can give padding: 50px; // For all the sides.
 or padding: 20px 40px 30px 50px; padding: top right bottom left;
 
 > All of them are valid;
-
+```
 
 MARGIN:
 ======
 We can use the margin property like padding.
-
+```
  div {
     background: red;
     padding: 20px;
@@ -412,10 +419,10 @@ We can use the margin property like padding.
 *{
     margin: 0;
 }
-
+```
 BORDER:
 ======
-
+```
 div {
     background: red;
     padding: 20px;
@@ -437,9 +444,10 @@ div {
     border-bottom-width: 10px;
     border-bottom-color: rgb(24, 10, 226);
   }
-
+```
 BORDER-RADIUS:
 ==============
+```
 Ex:
 div {
     background: red;
@@ -450,13 +458,16 @@ div {
 
 border-radius: 50%; //Makes oval
 
-
+```
 Negative margin:
 ================
+```
 margin-top: -100px; //Overlaps other element.
+```
 
 Outline:
 ========
+```
 Margin
 Outline
 Border
@@ -489,7 +500,7 @@ css:
 > Outline same like border. Here we can use the offset property.
 
 outline-offset: -10px; // moves the ouline 10px inside the button
-
+```
 
 Default display property:
 =========================
@@ -498,7 +509,7 @@ Inline: Doesnt start new line and only take up as much as content space.
 
 Some of the element are block and inline elements by default.
 We can change the default property of the elements by having "display: block;"
-
+```
 https://www.pexels.com/ -> to get images.
 
 EX:
@@ -542,13 +553,13 @@ CSS:
   }
 
 > We can also flex box for this.
-
+```
 
 BLOCK and INLINE:
 =================
 Block: Top Margin Bottom Respected by browser.
 Inline: Top Margin Bottom Not Respected by browser.
-
+```
 Ex: 1 Padding and margin wont work in below example.
 links are inline element. Browser is not respect that.
 
@@ -598,10 +609,11 @@ CSS:
 
 > So here we can give display: inline-block, So it wont take new line.
 
-
+```
 BORDER BOX:
 ===========
 
+```
 <div class="box-1"><h1>Border box</h1></div>
 <div class="box-2"><h1>Normal box</h1></div>
 <div class="box-3"><h1>Without Border box</h1></div>
@@ -643,10 +655,11 @@ Now the content is 160 and padding is 20, so the width of div is 200px x 200px
 Now padding will be applied inside of the element.
 
 > If we add border-box it wont mess up with the layout.
-
+```
 
 Display none, opacity, visibility:
 ===================================
+```
 <div class="none">Display none</div>
 <div class="opacity-1">Opacity - 1</div>
 <div class="opacity-5">Opacity - 5</div>
@@ -674,11 +687,11 @@ CSS:
  .visibility {
     visibility: hidden; //Hide the element. Element is there in browser but hidden
  }
-
+```
 
 Background Images:
 ===================
-
+```
 <div class="big-img"><h1>Big image</h1></div>
 <div class="small-img"><h1>Small Image</h1></div>
 <div class="folder-img"><h1>Folder image</h1></div>
@@ -775,9 +788,10 @@ CSS:
 
 > background property not respected if we place it in div.
 
-
+```
 LINEAR GRADIENT:
 ===============
+```
 Ex:1
 <div class="one"></div>
 <div class="two"></div>
@@ -851,10 +865,11 @@ Shorter way:
 > For more gradient visit https://www.colorzilla.com/gradient-editor/
 > Edit the colors and copy the properties and use it for your div
 
-
+```
 FLOAT PROPERTY:
 ===============
 
+```
 <div class="banner">
   <img src="./small.jpeg" alt="" />
   <p>
@@ -1003,14 +1018,14 @@ Ex: 3 Position: fixed -> For navigation buttons
 
 > Even if we scroll, the button will be fixed to top right corner.
 
-
+```
 MEDIA QUERY:
 ===========
 Helps to write responsive design.
 Style Elements depends on different screen sizes.
 min-width: starting from
 max-width: up to
-
+```
 Ex: 
 <div class="banner">
   <h1>
@@ -1055,11 +1070,12 @@ CSS:
       font-size: 60px;
     }
   }
-
+```
 
 Z-index:
 =======
 By default z-index is 0.
+```
 > It only work with position absolute and relative.
 > It wont work with position: static
 
@@ -1120,12 +1136,13 @@ CSS:
     position: static
     z-index: 1; // it wont work
   }
-
+```
 
 PSEUDO ELEMENTS:
 =================
 Style specific parts of the element. 
 ::before ::after Content not Element -> add the Content before or after the content of the Paragraph.
+```
 content:'' -> required
 img -> does not work. We cant add ::before ::after img
 
@@ -1223,7 +1240,7 @@ CSS:
     top: 0;
     left: 0;
   }
-
+```
 
 
 
