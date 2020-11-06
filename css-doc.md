@@ -1296,6 +1296,542 @@ CSS:
     left: 0;
   }
 ```
+Descendant and Child Combinators
+================================
+Childeren can be descendant but descendants are not children.
+```
+Ex:
+<div class="header">
+  <h1>Im Child and Descendant</h1>
+</div>
+<div class="header">
+  <ul>
+    <li>
+      <h1>Descendant</h1>
+    </li>
+  </ul>
+</div>
+
+CSS:
+1)
+
+ div h1 {
+    color: red; 
+ }
+
+This makes both h1 tag to color red.
+
+2)
+ div > h1 {
+    color: blue;
+ }
+This makes only the first h1 tag color blue. div with direct children h1
+
+3)
+ .header h1 {
+    color: red;
+ }
+This makes both h1 tag to color red.
+
+4)
+  .header h1 {
+    color: red;
+  }
+  div > h1 {
+    color: blue;
+  }
+```
+This make both h1 tag color red. Because directly looking for class is more specific.
+```
+5)
+  .header h1 {
+    color: red;
+  }
+  .header > h1 {
+    color: purple;
+  }
+  div h1 {
+    color: green;
+  }
+  div > h1 {
+    color: blue;
+  }
+```
+This makes first h1 tag color purple and second h1 tag to red.
+
+
+::first-line ::first-letter
+===========================
+```
+Ex:
+<p>
+  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur
+  deleniti officiis repellat vel eaque quisquam odio expedita, voluptatibus
+  distinctio maiores eum similique quibusdam voluptas fugit.
+</p>
+
+CSS:
+  p::first-letter {
+    font-size: 3rem;
+  }
+  p::first-line {
+    font-weight: bold;
+  }
+```
+:hover, :link, :visited, :active, :root
+========================================
+Ex: hover
+```
+<a href="#">Link</a>
+
+a:hover{
+  text-decoration: none;
+}
+```
+Ex: link, visited, active
+```
+<a href="https://www.google.com">General Link</a>
+<a href="https://www.w3schools.com">Visited Link</a>
+<a href="https://www.colorzilla.com/">Active Link</a>
+
+CSS:
+  a:link {
+    color: purple;
+  }
+  a:visited {
+    color: red;
+  }
+  a:active {
+    color: green; //When i click the link
+  }
+
+Ex: root
+Style root element of the document i.e html element
+
+:root{
+  font-size: 150%;
+}
+h1{
+  font-size: 1.5rem; //Based on root size gets increased
+}
+```
+
+Transform: translate(), scale(), rotate(), skew()
+=================================================
+Translate:
+-----------
+```
+<div class="one"></div>
+<div class="two"></div>
+<div class="three"></div>
+
+CSS:
+  div {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+  }
+  .one {
+    background: red;
+    transform: translateX(50%); /*50% of 150px of width = 75px*/
+  }
+  .two {
+    background: green;
+    transform: translateY(30px);
+  }
+  .three {
+    background: yellow;
+    transform: translate(20px, 30px); /*20px - X; 30px - Y*/
+  }
+```
+
+Scale:
+-------
+```
+transform: scaleX(2); /*Element grows(twice as big) in X direction*/
+transform: scaleX(0.5); /*Element grows half the size*/
+
+transform: scaleY(0.5);
+
+transform: scale(0.5, 0.5); // Grows both X and Y
+```
+Rotate:
+-------
+```
+transform: rotate(45deg);
+transform: rotateZ(45deg);
+Both are same
+```
+Skew:
+----
+```
+transform: skewX(45deg);
+transform: skew(45deg);
+Both are same
+
+transform: skew(45deg, -20deg);
+```
+Transition:
+===========
+Change over time
+```
+Ex:
+<div class="one"></div>
+<div class="two"></div>
+<div class="three"></div>
+
+CSS:
+  div {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+  }
+  div:hover {
+    background: brown;
+  }
+  .one {
+    background: red;
+  }
+  .two {
+    background: green;
+  }
+  .three {
+    background: yellow;
+    transition-property: background, border-radius;
+    transition-duration: 4s, 2s;
+  }
+  .three:hover {
+    border-radius: 50%;
+  }
+
+Ex: Transition delay
+
+.three {
+    background: yellow;
+    transition-property: background, border-radius;
+    transition-duration: 4s, 2s;
+    transition-delay: 2s;
+ }
+
+Ex: Shorter way
+  div {
+    width: 150px;
+    height: 150px;
+    display: inline-block;
+  }
+  .one {
+    background: red;
+  }
+  .two {
+    background: green;
+  }
+  .three {
+    background: yellow;
+    transition: background 3s 2s, border-radius 5s 1s; 
+                /*2s - delay; background gonna change over the period os 3s*/
+    /*If we have same period of transition and time delay, We can give
+    transition: all 3s 2s;
+    */
+  }
+  .three:hover {
+    border-radius: 50%;
+    background: brown;
+  }
+
+Ex: Optional Transition timing property
+> Decide how the transition takes place.
+
+Default value: ease
+
+transition-timing-function: 
+transition: all 3s ttf-here 5s
+
+ease = slow start, fast, slow end
+linear = same speed start to end
+ease-in = slow start
+ease-out = slow end
+ease-in-out = slow start, fast, slow end
+
+Ex:
+<div class="default">Default</div>
+<div class="ease">ease</div>
+<div class="linear">linear</div>
+<div class="ease-in">ease-in</div>
+<div class="ease-out">ease-out</div>
+<div class="ease-in-out">ease-in-out</div>
+
+CSS:
+ div {
+    width: 100px;
+    height: 100px;
+    background: blue;
+    color: white;
+    margin: 15px;
+    transition: all 1s;
+  }
+  div:hover {
+    transform: translateX(100px);
+  }
+  .ease {
+    transition-timing-function: ease; /* Or we can wrtie it as transition: all 1s ease;*/
+  }
+  .linear {
+    transition-timing-function: linear;
+  }
+  .ease-in {
+    transition-timing-function: ease-in;
+  }
+  .ease-out {
+    transition-timing-function: ease-out;
+  }
+  .ease-in-out {
+    transition-timing-function: ease-in-out;
+  }
+```
+
+ANIMATIONS:
+============
+Transition: 0 to 100%
+
+Animation: 0 1% 2% . . . 100%
+```
+Ex:
+ <div class="transition">Transition</div>
+ <div class="animation">Animation</div>
+
+CSS:
+ div {
+    width: 100px;
+    height: 100px;
+    color: white;
+    margin: 15px;
+  }
+  .transition {
+    background: blue;
+    transition: all 2s linear;
+  }
+  .transition:hover {
+    background: yellow;
+    transform: translateX(100px);
+  }
+  .animation {
+    background: green;
+    animation-name: move;
+    animation-duration: 10s;
+    animation-iteration-count: 2;
+  }
+  @keyframes move {
+    0% {
+      transform: translateX(20px);
+    }
+    50% {
+      transform: translateX(100px);
+      background: red;
+    }
+    75% {
+      transform: translateX(-200px);
+      background: yellow;
+    }
+    100% {
+      transform: translateX(20px);
+      background: purple;
+    }
+  }
+
+EX: Shorter way
+
+.animation {
+  background: green;
+  animation: move 5s infinite;
+}
+```
+Animation Fill mode:
+--------------------
+animation-fill-mode: what values are applied by the animation outside the time it is executing.
+```
+<div class="transition">Transition</div>
+<div class="animation">Animation</div>
+
+CSS:
+ div {
+    width: 100px;
+    height: 100px;
+    color: white;
+    margin: 15px;
+  }
+  .animation {
+    background: green;
+    animation: move 5s 2;
+  }
+  @keyframes move {
+    0% {
+      opacity: 0;
+    }
+    25% {
+      transform: translateX(200px);
+      opacity: 0.25;
+    }
+    50% {
+      transform: translateX(-100px);
+      opacity: 1;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 0.5;
+    }
+  }
+```
+> Here the div stays back with the opacity: 1 but we want opacity end with 0.5 given in animation 100%. We can use animation-fill-mode
+```
+.animation {
+    background: green;
+    animation: move 5s 2;
+    animation-fill-mode: forwards;
+  }
+```
+CSS Variables:
+=============
+Hold a value and reuse it.
+Syntax: —varName: value
+
+Property: var(—varName)
+
+Scope: 
+:root{} === global
+element === local
+```
+Ex:
+
+<h1 class="heading">Heading</h1>
+<p class="text">
+  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quam veritatis
+  atque, voluptas, perferendis quas accusantium quis, nulla rerum explicabo
+  non tempore ducimus commodi iure enim.
+</p>
+<div class="main">
+  <p class="main-text">
+    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatem
+    inventore voluptas perspiciatis quo illum vitae quis eaque excepturi
+    similique officiis?
+  </p>
+</div>
+<h3 class="heading-2">Second heading</h3>
+<h3 class="heading-3">Third heading</h3>
+
+CSS:
+  /*Global scope*/
+  :root {
+    --primaryColor: rgb(116, 6, 6);
+    --secondaryColor: rgb(131, 241, 4);
+    --mainTransition: all 0.4s linear;
+  }
+  /*Inherited from html*/
+  .heading {
+    color: var(--primaryColor);
+  }
+  .heading-2 {
+    color: var(--primaryColor);
+  }
+  .heading-2:hover {
+    color: var(--secondaryColor);
+    transition: var(--mainTransition);
+  }
+  .heading-3 {
+    color: var(--primaryColor);
+  }
+  /*Local scope:*/
+  div {
+    --primaryRed: red;
+  }
+  /*Inherited from div.main*/
+  .main-text {
+    color: var(--primaryRed);
+  }
+```
+
+Font Awesome Icons:
+====================
+https://fontawesome.com/
+-> click Icons and choose the icons
+
+Add the script:
+ <script
+      src="https://kit.fontawesome.com/92527e0278.js"
+      crossorigin="anonymous"
+    ></script>
+
+In body:
+<i class="fas fa-home fa-10x"></i>
+<span> <i class="fab fa-facebook"> </i></span>
+
+In CSS:
+ .fa-home {
+    color: green;
+  }
+
+Text-shadow, Box-shadow:
+=========================
+```
+Ex: Text shadow
+<h1>Heading</h1>
+
+  h1 {
+    text-shadow: 1px 5px 3px red;
+  }
+Ex: Box Shadow
+
+<div class="box"></div>
+
+  .box {
+    width: 150px;
+    height: 150px;
+    background: rgb(248, 3, 44);
+    margin: 20px;
+    box-shadow: 3px 5px 5px green;
+  }
+```
+External resource: Text shadow generator https://css3gen.com/text-shadow/
+
+Box shadow generator https://www.cssmatic.com/box-shadow
+ 
+https://autoprefixer.github.io/
+
+Scemantic Elements:
+===================
+```
+* <article>
+* <aside>
+* <details>
+* <figcaption>
+* <figure>
+* <footer>
+* <header>
+* <main>
+* <mark>
+* <nav>
+* <section>
+* <summary>
+* <time>
+```
+
+Emmet:
+======
+Emmet built in Visual studio code.
+Emmet gives suggestion.
+Speed up the work flow
+
+Ex: h1.main.sec then give tab
+h1#idName 
+header.head
+div>ul>li*5
+
+p{some text}
+ul>li*6{$}
+
+
+
+
+
 
 
 
