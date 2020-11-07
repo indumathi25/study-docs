@@ -1752,23 +1752,26 @@ CSS:
 Font Awesome Icons:
 ====================
 https://fontawesome.com/
--> click Icons and choose the icons
+-> click Icons tab and choose the icons 
 
-Add the script:
+Script:
+```
  <script
       src="https://kit.fontawesome.com/92527e0278.js"
       crossorigin="anonymous"
     ></script>
-
-In body:
+```
+body:
+```
 <i class="fas fa-home fa-10x"></i>
 <span> <i class="fab fa-facebook"> </i></span>
-
-In CSS:
+```
+CSS:
+```
  .fa-home {
     color: green;
   }
-
+```
 Text-shadow, Box-shadow:
 =========================
 ```
@@ -1819,15 +1822,14 @@ Emmet:
 Emmet built in Visual studio code.
 Emmet gives suggestion.
 Speed up the work flow
-
+```
 Ex: h1.main.sec then give tab
 h1#idName 
 header.head
 div>ul>li*5
-
 p{some text}
 ul>li*6{$}
-
+```
 
 
 
